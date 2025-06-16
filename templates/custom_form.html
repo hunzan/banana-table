@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>蕉表格 - 通用表格產生器</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+
+<body>
+  <main>
+  <a href="#main-title" class="skip-link">跳到主內容</a>
+  <h1>蕉表格🍌通用表格產生器  <button class="btn btn-purple" onclick="window.open('/howto_custom', '_blank')">使用說明</button></h1>
+  <form method="POST" action="/generate-custom-docx" id="customForm">
+
+    <label for="upload_csv">可上傳 CSV：CSV 檔內容寫法請讀「使用說明」</label>
+    <input type="file" id="upload_csv" accept=".csv" onchange="uploadCustomCsv(event)" />
+
+    <label for="fontSelect">選擇字型：</label>
+    <select id="fontSelect" name="font">
+      <option value="DFKai-SB">標楷體</option>
+      <option value="Microsoft JhengHei">微軟正黑體</option>
+      <option value="PMingLiU">新細明體</option>
+      <option value="Noto Sans TC">Noto Sans TC</option>
+    </select>
+
+    <label for="layout">格式：</label>
+    <select id="layout" name="layout">
+      <option value="portrait">A4 直式</option>
+      <option value="landscape">A4 橫式</option>
+    </select>
+
+    <label for="borderWidth">格線粗細：</label>
+    <select id="borderWidth" name="borderWidth">
+      <option value="4">細線（0.5pt）</option>
+      <option value="8" selected>中線（1pt）</option>
+      <option value="16">粗線（2pt）</option>
+      <option value="24">超粗（3pt）</option>
+    </select>
+
+    <label for="tableTitle">標題：</label>
+    <input id="tableTitle" name="tableTitle" type="text" placeholder="表格標題" required>
+
+    <div id="tableContainer"></div>
+
+    <div class="form-buttons">
+    <button type="button" id="addItemBtn" class="btn btn-add">
+        ➕ 新增欄位
+    </button>
+    <button type="button" id="removeItemBtn" class="btn btn-remove">
+        ➖ 移除欄位
+    </button>
+    <button type="submit" class="btn btn-red" formaction="/generate-custom-docx">製作表格</button>
+    <button type="submit" class="btn btn-green" formaction="/download-custom-csv">下載 CSV 檔</button>
+    <button type="reset" class="btn btn-blue" id="clearBtn">清除所有欄位</button>
+    <button type="button" class="btn btn-invert" onclick="toggleContrast()">色彩反轉</button>
+    </div>
+
+  </form>
+</main>
+
+  <script src="{{ url_for('static', filename='custom.js') }}"></script>
+  <script src="https://cdn.jsdelivr.net/npm/papaparse@5.4.1/papaparse.min.js"></script>
+
+</body>
+</html>

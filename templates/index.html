@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="UTF-8">
+  <title>蕉表格 Banana Table</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+  <link rel="icon" href="{{ url_for('static', filename='favicon.ico') }}" type="image/x-icon">
+  <style>
+    body {
+      font-family: 'Noto Sans TC', sans-serif;
+      text-align: center;
+      background-color: #fdfbe7;
+      color: #333;
+      margin: 0;
+      padding: 2rem;
+    }
+
+    h1 {
+      font-size: 2.2rem;
+      margin-bottom: 0.5rem;
+    }
+
+    p {
+      font-size: 1.1rem;
+      margin: 0.2rem 0;
+    }
+
+    .nav-buttons {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 1rem;
+      margin-top: 2rem;
+    }
+
+    .nav-buttons a {
+      display: inline-block;
+      width: 260px;
+      padding: 1rem;
+      font-size: 1.2rem;
+      border-radius: 12px;
+      text-decoration: none;
+      background-color: #ffe082;
+      color: #000;
+      border: 2px solid #fbc02d;
+      transition: transform 0.2s, background-color 0.2s;
+    }
+
+    .nav-buttons a:hover,
+    .nav-buttons a:focus {
+      background-color: #fff176;
+      transform: scale(1.03);
+    }
+
+    footer {
+      margin-top: 3rem;
+      font-size: 0.9rem;
+      color: #464141;
+    }
+  </style>
+</head>
+<body>
+<main role="main" id="maincontent">
+  <a href="#maincontent" class="skip-link">跳到主要內容</a>
+  <h1>歡迎使用蕉表格 🍌📄</h1>
+  <p aria-label="工具簡介" tabindex="0">鍵盤操作友善的表格工具</p>
+  <p aria-label="工具簡介" tabindex="0">適用於視障者、學生、助理與老師的日常表單製作</p>
+
+  <div class="nav-buttons" role="navigation" aria-label="功能選單">
+    <a href="/schedule" aria-label="前往製作課表或週行事曆頁面">📚 製作課表／週行事曆</a>
+    <a href="/calendar" aria-label="前往製作月行事曆頁面">📅 製作月行事曆</a>
+    <a href="/custom" aria-label="前往製作通用表格頁面">📝 製作通用表格</a>
+  </div>
+
+  <footer id="footer" tabindex="-1" role="contentinfo">
+    <p tabindex="0">香蕉計畫 Banana Project｜讓每個人都能獨立製表</p>
+    <p tabindex="0">© 2025 開發者：Lîm A-kâu（林阿猴）& Kim Chio（金蕉），供免費教學及學習使用。</p>
+    <a href="#maincontent">⇧ 回到頁首</a>
+  </footer>
+</main>
+</body>
+</html>

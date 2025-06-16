@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="UTF-8">
+  <title>使用說明｜蕉表格月行事曆產生器</title>
+  <style>
+    body {
+      background-color: #cbdbb8;
+      color: #000000;
+      font-family: "Noto Sans TC", sans-serif;
+      line-height: 1.6;
+      margin: 2rem;
+      max-width: 720px;
+    }
+    h1 {
+      font-size: 1.8rem;
+      border-bottom: 2px solid #ccc;
+      padding-bottom: 0.3rem;
+    }
+    h2 {
+      margin-top: 1.5rem;
+      font-size: 1.4rem;
+    }
+    ul {
+      margin-left: 1rem;
+    }
+    code {
+      background-color: #f0f0f0;
+      padding: 0.1rem 0.4rem;
+      border-radius: 4px;
+    }
+    section:focus {
+      outline: 3px dashed #333;
+      background-color: #ecf9d8;
+    }
+    li:focus, p[tabindex="0"]:focus {
+      outline: 2px dashed #333;
+      background-color: #f8fff0;
+    }
+  </style>
+</head>
+<body>
+<main>
+<section tabindex="0" aria-labelledby="first-title">
+  <h1 id="first-title">使用說明｜蕉表格月行事曆產生器</h1>
+  <p tabindex="0">本工具為便利視障人士製作文書表格而開發，可匯出成 <strong>Word（.docx）</strong> 或 <strong>CSV</strong> 檔案備份。支援 <strong>NVDA 螢幕閱讀器操作</strong>，並適用電腦與手機。</p>
+</section>
+
+<section aria-labelledby="step-title">
+  <h2 id="step-title">🔰 操作步驟</h2>
+  <ol>
+    <li tabindex="0">若您有正確內容的 CSV 檔，可上傳，會自動載入各欄位，節省逐欄輸入的時間。</li>
+    <li tabindex="0">選擇表格字型：有 4 種；<strong>標楷體</strong>、<strong>微軟正黑體</strong>、<strong>新細明體</strong>、<strong>Noto Sans TC</strong>。</li>
+    <li tabindex="0">選擇想要的輸出格式：<strong>A4直式</strong>或<strong>A4橫式</strong>。</li>
+    <li tabindex="0">格線粗線：有 4 種；<strong>「細」、「中」、「粗」、「超粗」</strong>的表格框線選擇。</li>
+    <li tabindex="0">依序輸入各欄位，順序由上而下：標題、西元年、月份、固定行程、非固定行程。</li>
+    <li tabindex="0"><strong>標題</strong>：此份表格的名稱，位於最上方。</li>
+    <li tabindex="0"><strong>西元年</strong>：預設由2000年起跳，按向上箭頭增加年份，也可直接數字鍵輸入西元年，如：2026。</li>
+    <li tabindex="0"><strong>月份</strong>：預設由0起跳，按向上箭頭增加月份，可直接數字鍵輸入月份，如：6</li>
+    <li tabindex="0"><strong>固定行程</strong>：依您需要的行程填寫，同一項以<strong>空格</strong>隔開，寫法：每週一 (空格)下午3點 (空格)開會。換行再增加項目，會自動填入月曆格子中。</li>
+    <li tabindex="0"><strong>非固定行程</strong>：依您需要的行程填寫，同一項以<strong>空格</strong>隔開，寫法：2/15 (空格)中午12點 (空格)聚餐。換行再增加項目，會自動填入月曆格子中。。</li>
+    <li tabindex="0">點擊<strong>「製作月行事曆（.docx）」</strong>開始產生表格，會跳出視窗詢問使用者儲存位置。</li>
+    <li tabindex="0">點擊<strong>「下載 CSV 備份」</strong>，會跳出視窗將您的欄位轉成 CSV 檔，方便直接修改檔案或下次載入再使用。</li>
+    <li tabindex="0">點擊<strong>「清除所有欄位」</strong>會清空所有欄位的內容。</li>
+    <li tabindex="0">點擊<strong>「色彩反轉」</strong>會將網頁的畫面背景與文字色彩反轉，顧及喜好深底淺字的使用者。</li>
+  </ol>
+</section>
+<section aria-labelledby="example-title">
+  <h2 id="example-title">📅 範例內容說明</h2>
+<ul>
+   <li tabindex="0"><strong>[font],</strong>（字型，讓它空著就好，目前不支援 CSV 載入此項）</li>
+   <li tabindex="0"><strong>[layout],</strong>portrait（直式）／landscape（橫式），【擇一填寫，只認英文😎】</li>
+   <li tabindex="0"><strong>[title],</strong>六月份工作事項(標題)</li>
+   <li tabindex="0"><strong>[year],</strong>2026(西元年)</li>
+   <li tabindex="0"><strong>[month],</strong>6(月份)</li>
+   <li tabindex="0"><strong>[fixed],</strong>每週一 下午2點 小組會議(固定行程，每週幾固定會有的行程，同一項以<strong>空格</strong>隔開，換行寫下一項)</li>
+   <li tabindex="0"><strong>[fixed],</strong>每週三 上午10點 行政工作(固定行程，<strong>換行</strong>寫下一項，別忘了前面的[fixed]和逗號喔！同一項以<strong>空格</strong>隔開)</li>
+   <li tabindex="0"><strong>[event],</strong>06/12,下午2點,新竹參訪(非固定行程，直接寫日期，日期寫法「月份斜線日期」，以<strong>逗號</strong>隔開)</li>
+   <li tabindex="0"><strong>[event],</strong>06/15,上午10點,督導會議(非固定行程，換行寫下一陣，別忘了前面的[event]和逗號喔！同一項以<strong>逗號</strong>隔開)</li>
+</ul>
+</textarea>
+</section>
+<section aria-labelledby="keyboard-title">
+  <h2 id="keyboard-title">🎙 視障使用者鍵盤友善介面</h2>
+  <ul>
+    <li tabindex="0">建議使用 <strong>NVDA</strong> 搭配網頁瀏覽器。</li>
+    <li tabindex="0">Tab 鍵即可逐一跳到各欄位輸入，Enter 可換行（如跨欄橫列或課表內容）。</li>
+    <li tabindex="0">欄位標示皆為文字標籤，NVDA 可正確朗讀。</li>
+  </ul>
+</section>
+
+<section aria-labelledby="export-title">
+  <h2 id="export-title">📄 匯出說明</h2>
+  <ul>
+    <li tabindex="0">Word 檔（.docx）：您可依需求再另外排版。</li>
+    <li tabindex="0">CSV 檔：適合資料備份與再次匯入、用 TXT 純文字或 Excel 開啟可編輯。</li>
+    <li tabindex="0">檔名預設以您輸入的標題命名，例如「六月份行事曆.docx」。</li>
+  </ul>
+</section>
+
+<section aria-labelledby="csv-title">
+  <h2 id="csv-title">💡 CSV 內容填寫範例</h2>
+  <p tabindex="0">CSV 可用記事本這類純文字寫入內容後，存檔後把副檔名改成 .csv 即可。</p>
+<h2 id="csv-title">💡 CSV 內容填寫範例</h2>
+<p>
+  您可<a href="{{ url_for('static', filename='月曆表csv範例.txt') }}" download>下載 CSV 範例檔</a>來查看欄位寫法，也可以用記事本修改後另存為 .csv。
+</p>
+
+</section>
+
+<section tabindex="0" aria-labelledby="qa-title">
+  <h2 id="qa-title">🍌 有問題嗎？</h2>
+  <p tabindex="0">若遇到問題，可聯繫我們團隊（阿猴🐵 & 金蕉🍌），或到回到首頁重新填寫。</p>
+</section>
+</main>
+</body>
+</html>

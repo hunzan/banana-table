@@ -1,0 +1,156 @@
+h1 {
+  font-family: 'DFKai-SB', '標楷體', 'KaiTi', sans-serif;
+  text-align: center;
+}
+body {
+  font-family: 'Noto Sans TC', sans-serif;
+  padding: 1rem;
+  background: #f6dda9;
+  color: #000;
+}
+label {
+  display: block;
+  margin-top: 1rem;
+}
+input[type="text"], textarea, select {
+  width: 100%;
+  border: 3px solid #201f1f;
+  padding: 0.5rem;
+  border-radius: 6px;
+  font-size: 1rem;
+}
+.break-row {
+text-align: center;
+background-color: #eee;
+font-weight: bold;
+}
+table {
+  border-collapse: collapse;
+  width: 100%;
+  margin-top: 1rem;
+}
+th, td {
+  border: 1px solid #999;
+  padding: 0.5rem;
+  text-align: center;
+}
+.editable-cell {
+  min-width: 80px;
+}
+.form-buttons {
+text-align: center;
+margin-top: 1.5rem;
+}
+.btn {
+  font-size: 1rem;
+  padding: 0.6rem 1.2rem;
+  margin: 0.5rem;
+  border: 3px solid #444; /* ⬅ 加粗框線 */
+  border-radius: 8px;
+  cursor: pointer;
+  font-family: inherit;
+}
+
+.btn-purple {
+  background-color: #673ab7;
+  color: white;
+  border: none;
+  padding: 8px 16px;
+  font-size: 1rem;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: filter 0.3s ease;
+}
+
+.btn-add {
+  background-color: #4CAF50;
+  color: white;
+}
+
+.btn-remove {
+  background-color: #f44336;
+  color: white;
+}
+
+.btn-purple:hover,
+.btn-red:hover,
+.btn-green:hover,
+.btn-blue:hover,
+.btn-invert:hover,
+.btn-add:hover,
+.btn-remove:hover {
+  filter: brightness(1.2);
+}
+
+.btn-red {
+  background-color: #f8d7da;
+  color: #721c24;
+}
+
+.btn-green {
+  background-color: #d4edda;
+  color: #155724;
+}
+
+.btn-blue {
+  background-color: #d1ecf1;
+  color: #0c5460;
+}
+
+.btn-invert {
+  background-color: #fef3c7;
+  color: #92400e;
+}
+/* 放在 CSS 裡，讓跳連結不干擾畫面，但仍可用鍵盤操作 */
+.skip-link {
+position: absolute;
+left: -9999px;
+top: auto;
+width: 1px;
+height: 1px;
+overflow: hidden;
+}
+.skip-link:focus {
+position: static;
+width: auto;
+height: auto;
+margin: 1rem;
+padding: 0.5rem;
+background: #000;
+color: #fff;
+z-index: 1000;
+}
+
+/* 色彩反轉模式：整體背景與文字 */
+body.high-contrast {
+  background-color: #000000;
+  color: #ffffff;
+}
+
+/* 表單欄位框線、背景、文字也反轉 */
+body.high-contrast input[type="text"],
+body.high-contrast textarea,
+body.high-contrast select {
+  background-color: #111111;
+  color: #ffffff;
+  border: 3px solid #ffffff;
+}
+
+/* 按鈕也反轉：保留原有顏色略變淡可辨識 */
+body.high-contrast .btn-red {
+  background-color: #ffaaaa;
+  color: #000;
+}
+body.high-contrast .btn-green {
+  background-color: #aaffaa;
+  color: #000;
+}
+body.high-contrast .btn-blue {
+  background-color: #aaaaff;
+  color: #000;
+}
+body.high-contrast .btn-contrast {
+  background-color: #ffffff;
+  color: #000000;
+  border: 2px solid #888;
+}

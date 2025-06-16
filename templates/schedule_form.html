@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC&display=swap" rel="stylesheet">
+  <meta charset="UTF-8" />
+  <title>蕉表格 - 課表／週行事曆產生器</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+  <a href="#main-title" class="skip-link">跳到主內容</a>    
+  <h1 id="main-title" tabindex="-1">蕉表格🍌課表／週行事曆 <button class="btn btn-purple" onclick="window.open('/howto', '_blank')">使用說明</button></h1>
+
+  <form id="scheduleForm" aria-label="課表／週行事曆製作表單">
+    
+    <label for="csv_file">可上傳 CSV：CSV 檔內容寫法請讀「使用說明」</label>
+    <input type="file" id="csv_file" name="csv_file" accept=".csv" onchange="uploadCSV()" />
+
+    <label for="font">選擇字體：</label>
+    <select id="font" name="font">
+        <option value="DFKai-SB">標楷體</option>
+        <option value="微軟正黑體">微軟正黑體</option>
+        <option value="新細明體">新細明體</option>
+        <option value="Noto Sans TC">Noto Sans TC</option>
+    </select>
+
+    <label for="orientation">選擇輸出格式：</label>
+    <select id="orientation" name="orientation" required>
+      <option value="landscape">A4 橫式</option>
+      <option value="portrait">A4 直式</option>
+    </select>
+
+    <label for="borderWidth">格線粗細：</label>
+    <select id="borderWidth" name="borderWidth">
+      <option value="4">細線（0.5pt）</option>
+      <option value="8" selected>中線（1pt）</option>
+      <option value="16">粗線（2pt）</option>
+      <option value="24">超粗（3pt）</option>
+    </select>
+
+    <label for="title">輸入標題：</label>
+    <input type="text" id="title" name="title" required placeholder="蕉蕉國小 114學年度上學期 一年蕉班功課表" aria-describedby="titleHelp" />    
+
+    <label for="remarks">說明欄：</label>
+    <textarea id="remarks" name="remarks" rows="3" placeholder="例如：導師：金蕉"></textarea>
+
+    <label for="weeks">輸入週次名稱（逗號分隔，最多7欄）：</label>
+    <input type="text" id="weeks" name="weeks" required placeholder="週一,週二,週三,..." />
+
+    <label for="periods">輸入節次（逗號分隔）：</label>
+    <input type="text" id="periods" name="periods" required placeholder="第1節,第2節,第3節,..." />
+
+    <label for="times">節次時間（可不填，逗號分隔）：</label>
+    <input type="text" id="times" name="times" placeholder="9:00~9:40,10:00~10:40,..." />
+
+    <label for="breaks">插入跨欄橫列（依需求設定）：</label>
+    <textarea id="breaks" name="breaks" rows="3" placeholder="4:午休&#10;6:點心時間"></textarea>
+
+    <label for="content">輸入課程內容：</label>
+    <textarea id="content" name="content" rows="8" required
+    placeholder="請用逗號分隔每一欄，換行分隔每一列，例如：&#10;語文,數學,自然科&#10;社會,英語,體育">
+    </textarea>
+
+    <label for="footer_note">備註欄：</label>
+    <textarea id="footer_note" name="footer_note" rows="3" placeholder="例如：本課表僅供參考，實際以校方公告為準"></textarea>
+  <div class="form-buttons">
+    <button type="button" class="btn btn-red" onclick="downloadDocx()">製作課表／週行事曆 (.docx)</button>
+    <button type="button" class="btn btn-green" onclick="downloadCsv()">下載 CSV 備份</button>
+    <button type="reset" class="btn btn-blue">清除所有欄位</button>
+    <button type="button" class="btn btn-invert" onclick="toggleContrast()">色彩反轉</button>
+  </div>
+  </form>
+
+<script src="{{ url_for('static', filename='schedule.js') }}"></script>
+
+</body>
+</html>

@@ -1,0 +1,9 @@
+[font],標楷體
+[layout],portrait
+[title],六月份工作事項
+[year],2026
+[month],6
+[fixed],每週一 下午2點 小組會議
+[fixed],每週三 上午10點 行政工作
+[event],06/12,下午2點,新竹參訪
+[event],06/15,上午10點,督導會議
