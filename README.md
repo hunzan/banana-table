@@ -31,7 +31,7 @@
 
 ## 🚀 安裝與執行（本地端）
 
-```bash
+bash
 git clone https://github.com/hunzan/banana-table.git
 cd banana-table
 pip install -r requirements.txt
