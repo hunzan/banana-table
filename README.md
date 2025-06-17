@@ -6,7 +6,7 @@
 
 ## 🔗 Demo 網址
 
-👉 [https://banana-table.onrender.com](https://banana-table.onrender.com)（如已佈署）
+👉 [https://banana-table.onrender.com](https://banana-table.onrender.com)
 
 ---
 
