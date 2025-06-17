@@ -37,15 +37,17 @@ cd banana-table
 pip install -r requirements.txt
 python app.py
 
+---
+
 ## 🙌 貢獻與回饋
 本專案歡迎視障朋友、特殊教育老師、無障礙工程師一同參與改進！
 有任何建議歡迎開 Issue 或來信交流。
 
-## 📜 授權 License
-## 版權與使用條款
-本專案為**免費軟體**，僅供學術、教育與非營利用途。
-
-## **禁止任何形式的商業利用。**
-
 ---
-## Copyright © 2025 Lîm Akâu & KimTsio
+
+📜 版權與使用條款
+本專案為免費軟體，僅供學術、教育與非營利用途。
+
+🚫 禁止任何形式的商業利用。
+
+Copyright © 2025 Lîm Akâu & KimTsio
