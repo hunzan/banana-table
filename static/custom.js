@@ -81,6 +81,7 @@ document.addEventListener("DOMContentLoaded", function () {
 function toggleContrast() {
   document.body.classList.toggle('high-contrast');
 }
+
 function uploadCustomCsv(event) {
   const container = document.getElementById("tableContainer");
   const file = event.target.files[0];
@@ -110,7 +111,24 @@ function uploadCustomCsv(event) {
           container.appendChild(div);
         }
       });
+      // 視覺提示
+    const status = document.getElementById("uploadStatus");
+      status.textContent = `✅已匯入 ${parsed.data.length} 筆資料！`;
+      status.style.color = "green";
+
+    // 語音播報
+    const message = `CSV 上傳完成，共 ${parsed.data.length} 筆資料。`;
+    speechSynthesis.speak(new SpeechSynthesisUtterance(message));
+
     };
     reader.readAsText(file, "UTF-8");
   }
 }
+
+window.addEventListener('DOMContentLoaded', () => {
+  const heading = document.getElementById('main-title');
+  if (heading) {
+    heading.setAttribute('tabindex', '-1'); // 讓 h1 可被聚焦，但不會干擾 tab 鍵順序
+    heading.focus();
+  }
+});

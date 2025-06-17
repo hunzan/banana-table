@@ -122,6 +122,7 @@ function downloadCalendarCsv() {
     });
     
 }
+
 function uploadCalendarCsv(event) {
   const input = event.target;
   if (!input.files || input.files.length === 0) {
@@ -169,31 +170,42 @@ function uploadCalendarCsv(event) {
     }
 
     // 🔹 特定行程回填（穩定處理日期格式）
+    let lines = [];
     if (data.specificEvents && Array.isArray(data.specificEvents)) {
-    const lines = data.specificEvents.map(evt => {
+      lines = data.specificEvents.map(evt => {
         let dateStr = evt.date;
 
-        // 若為 YYYY-MM-DD 格式，轉成 MM/DD
         if (typeof dateStr === 'string' && dateStr.length === 10 && dateStr.includes('-')) {
-        const parts = dateStr.split('-');
-        if (parts.length === 3) {
+          const parts = dateStr.split('-');
+          if (parts.length === 3) {
             const month = parseInt(parts[1]);
             const day = parseInt(parts[2]);
             if (!isNaN(month) && !isNaN(day)) {
-            dateStr = `${month}/${day}`;
+              dateStr = `${month}/${day}`;
             }
-        }
+          }
         }
 
         return `${dateStr} ${evt.time} ${evt.task}`;
-    });
+      });
 
-    document.getElementById('specific_events').value = lines.join('\n');
+      document.getElementById('specific_events').value = lines.join('\n');
     } else {
-    document.getElementById('specific_events').value = '';
+      document.getElementById('specific_events').value = '';
     }
 
-    alert('CSV 讀取並填入完成！');
+    // ✅ 加入無障礙提示
+    const message = `✅已匯入 ${lines.length} 筆資料。`;
+
+    const statusBox = document.getElementById("uploadStatus");
+    if (statusBox) {
+      statusBox.textContent = message;
+    }
+
+    if ('speechSynthesis' in window) {
+      speechSynthesis.speak(new SpeechSynthesisUtterance(message));
+    }
+
   })
   .catch(err => {
     alert('❌ 上傳 CSV 失敗：' + err.message);
@@ -202,5 +214,13 @@ function uploadCalendarCsv(event) {
 }
 
 function toggleContrast() {
-    document.body.classList.toggle('high-contrast');
+  document.body.classList.toggle('high-contrast');
 }
+
+window.addEventListener('DOMContentLoaded', () => {
+  const heading = document.getElementById('main-title');
+  if (heading) {
+    heading.setAttribute('tabindex', '-1'); // 讓 h1 可被聚焦，但不會干擾 tab 鍵順序
+    heading.focus();
+  }
+});

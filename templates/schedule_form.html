@@ -3,17 +3,20 @@
 <head>
   <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC&display=swap" rel="stylesheet">
   <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>蕉表格 - 課表／週行事曆產生器</title>
   <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
 </head>
 <body>
+<main>
   <a href="#main-title" class="skip-link">跳到主內容</a>    
-  <h1 id="main-title" tabindex="-1">蕉表格🍌課表／週行事曆 <button class="btn btn-purple" onclick="window.open('/howto', '_blank')">使用說明</button></h1>
+  <h1 id="main-title">蕉表格🍌課表／週行事曆 <button class="btn btn-purple" onclick="window.open('/howto', '_blank')">使用說明</button></h1>
 
   <form id="scheduleForm" aria-label="課表／週行事曆製作表單">
     
     <label for="csv_file">可上傳 CSV：CSV 檔內容寫法請讀「使用說明」</label>
     <input type="file" id="csv_file" name="csv_file" accept=".csv" onchange="uploadCSV()" />
+    <div id="uploadStatus" style="margin-top: 1em; font-weight: bold; color: green;" aria-live="polite"></div>  
 
     <label for="font">選擇字體：</label>
     <select id="font" name="font">
@@ -69,6 +72,7 @@
     <button type="button" class="btn btn-invert" onclick="toggleContrast()">色彩反轉</button>
   </div>
   </form>
+</main>
 
 <script src="{{ url_for('static', filename='schedule.js') }}"></script>
 

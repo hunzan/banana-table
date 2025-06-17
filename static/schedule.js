@@ -49,8 +49,21 @@ function uploadCSV() {
         document.getElementById("breaks").value = data.breaks.join('\n');
         document.getElementById("footer_note").value = data.note;
         document.getElementById("content").value = data.content.map(row => row.join(',')).join('\n');
-    };
+    
+            // 建立提示訊息內容
+        const message = `✅已匯入 ${data.content.length} 筆資料。`;
 
+        // 螢幕閱讀器提示（aria-live 區塊）
+        const statusBox = document.getElementById("uploadStatus");
+        if (statusBox) {
+        statusBox.textContent = message;
+        }
+
+        // 語音朗讀提示
+        if ('speechSynthesis' in window) {
+        speechSynthesis.speak(new SpeechSynthesisUtterance(message));
+        }
+    };
     reader.readAsText(file, 'UTF-8');
     }
 
@@ -104,3 +117,11 @@ function downloadCsv() {
 function toggleContrast() {
     document.body.classList.toggle('high-contrast');
 }
+
+window.addEventListener('DOMContentLoaded', () => {
+  const heading = document.getElementById('main-title');
+  if (heading) {
+    heading.setAttribute('tabindex', '-1'); // 讓 h1 可被聚焦，但不會干擾 tab 鍵順序
+    heading.focus();
+  }
+});

@@ -8,13 +8,14 @@
 </head>
 
 <body>
-  <main>
+  <main id="main-content">
   <a href="#main-title" class="skip-link">跳到主內容</a>
-  <h1>蕉表格🍌通用表格產生器  <button class="btn btn-purple" onclick="window.open('/howto_custom', '_blank')">使用說明</button></h1>
+  <h1 id="main-title">蕉表格🍌通用表格產生器  <button class="btn btn-purple" onclick="window.open('/howto_custom', '_blank')">使用說明</button></h1>
   <form method="POST" action="/generate-custom-docx" id="customForm">
 
     <label for="upload_csv">可上傳 CSV：CSV 檔內容寫法請讀「使用說明」</label>
     <input type="file" id="upload_csv" accept=".csv" onchange="uploadCustomCsv(event)" />
+    <div id="uploadStatus"></div>
 
     <label for="fontSelect">選擇字型：</label>
     <select id="fontSelect" name="font">

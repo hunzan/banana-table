@@ -3,11 +3,43 @@ h1 {
   text-align: center;
 }
 body {
+  max-width: 100%;
+  margin: 0 auto;
   font-family: 'Noto Sans TC', sans-serif;
   padding: 1rem;
+  font-size: 1rem;
   background: #f6dda9;
   color: #000;
 }
+input[type="text"],
+input[type="number"],
+input[type="file"],
+select,
+textarea {
+  width: 100%;
+  max-width: 100%;
+  box-sizing: border-box;
+}
+
+nav ul {
+  padding: 0;
+  list-style: none;
+}
+
+nav li {
+  margin: 0.5rem 0;
+}
+
+@media (max-width: 600px) {
+  h1 {
+    font-size: 1.5rem;
+  }
+  .form-buttons {
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+}
+
 label {
   display: block;
   margin-top: 1rem;
@@ -41,6 +73,7 @@ th, td {
 text-align: center;
 margin-top: 1.5rem;
 }
+
 .btn {
   font-size: 1rem;
   padding: 0.6rem 1.2rem;
