@@ -1,5 +1,5 @@
-# requirements.txt
-flask
-python-docx
-reportlab
-pandas
+gunicorn==23.0.0
+flask==3.1.1
+python-docx==1.1.0
+reportlab==4.2.0
+pandas==2.2.2
