@@ -1,1 +1,10 @@
-startCommand: gunicorn app:app
+services:
+  - type: web
+    name: banana-table
+    env: python
+    buildCommand: pip install -r requirements.txt
+    startCommand: gunicorn app:app
+    autoDeploy: true
+    envVars:
+      - key: FLASK_ENV
+        value: production
